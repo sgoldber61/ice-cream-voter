@@ -1,9 +1,8 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
 
-const flavorSchema = new Schema({
+const flavorSchema = new mongoose.Schema({
   flavor: {type: String, required: true},
-  votes: {type: Number, required: true}
+  likes: {type: Number, required: true}
 });
 
 module.exports = mongoose.model('flavor', flavorSchema);

@@ -1,3 +1,14 @@
 body {
   font-family: sans-serif;
 }
+
+.main{
+  max-width: 50%;
+  border: 1px solid black;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+}

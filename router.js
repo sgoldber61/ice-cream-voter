@@ -1,21 +1,13 @@
-const userController = require('./user/userController');
-const cookieController = require('./util/cookieController');
-
-// create server routes here
 module.exports = function(app) {
-  app.get('/api/hello', (req, res) => {
-    res.send({message: 'Hi! Here is some content from the server.'});
+  // returns an object with the vote totals for chocolate, vanilla, and strawberry ice cream
+  app.get('/api/votes', (req, res) => {
+    
   });
   
-  app.get('/api/protected', userController.requireAuth, (req, res) => {
-    res.send({
-      message: `Hi, ${res.app.locals.username}! Here is some login-protected content.`,
-    });
+  // adds a vote to the ice cream with the given req.body.flavor
+  // creates the flavor in the database if it's not found
+  app.post('/api/vote', userController.requireAuth, (req, res) => {
+    
   });
-  
-  // authentication operations
-  app.post('/auth/signin', userController.verifyUser, cookieController.setCookie);
-  app.post('/auth/signup', userController.signup, cookieController.setCookie);
-  app.post('/auth/signout', cookieController.removeCookie);
 }
 

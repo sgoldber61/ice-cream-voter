@@ -3,25 +3,19 @@ require('dotenv').config()
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
-mongoose.Promise = global.Promise;
 
-const router = require('./router');
-
-// connect to mongodb
+// connect to database
 mongoose.connect(process.env.MONGO_URL);
 
+// create express server and apply middleware
 const app = express();
-
-// middleware
 app.use(bodyParser.json());
-app.use(cookieParser());
 
-
-const port = process.env.PORT || 5000;
 // create server routes here
+const router = require('./router');
 router(app);
 
+const port = 5000;
 app.listen(port, () => console.log(`Server listening on port ${port}`));
 

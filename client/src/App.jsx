@@ -17,6 +17,10 @@ class App extends Component {
       const votes = {
         chocolate: 0,
         vanilla: 0,
+        strawberry: 0,
+        honey_lavender: 0,
+        earl_gray: 0,
+        matcha: 0,
         durian: 0
       };
       
